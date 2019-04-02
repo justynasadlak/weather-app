@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/justynasadlak/weather-app/issues"
   },
-  "homepage": "https://github.com/justynasadlak/weather-app#readme"
+  "homepage": "https://github.com/justynasadlak/weather-app#readme",
+  "devDependencies": {
+    "webpack": "^4.29.6"
+  }
 }
