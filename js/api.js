@@ -46,7 +46,6 @@
 	}
 
 	function addToHTML(recivedData) {
-
 		//destrukturyzacja
 		const {
 			name,
@@ -62,12 +61,10 @@
 				temp
 			}
 		} = recivedData;
-
 		document.querySelector("#city ").appendChild(document.createTextNode(name));
 		document.querySelector("#wind span").appendChild(document.createTextNode(speed));
 		document.querySelector("#rain span").appendChild(document.createTextNode(rain));
 		document.querySelector("#humidity span").appendChild(document.createTextNode(humidity));
 		document.querySelector("#temp span").appendChild(document.createTextNode(Math.floor(temp)));
 	}
-
 	addToHTML(city);
