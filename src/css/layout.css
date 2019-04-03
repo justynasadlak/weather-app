@@ -37,10 +37,24 @@ div {
 	grid-column: 2/3;
 	grid-row: 1;
 	grid-row: span 2;
-	font-size: 10rem;
 
 }
 
+.icon-search{
+	position: relative;
+	left: 100px;
+	top: -10px;
+	height: 60px;
+	font-size: 80px;
+}
+
+#search-container {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 @media only screen and (max-width: 768px) {
 	body {
 		grid-template-rows: minmax(100px, auto) auto 50px;
@@ -58,8 +72,8 @@ div {
 	}
 
 	#wind,
-	#rain,
-	#humidity {
+	#humidity,
+	#pressure {
 		grid-column: 2/3;
 		grid-row: auto;
 	}
@@ -82,8 +96,8 @@ div {
 	}
 
 	#wind,
-	#rain,
-	#humidity {
+	#humidity,
+	#pressure {
 		grid-row: auto;
 		grid-column: 1;
 	}

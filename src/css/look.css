@@ -1,6 +1,9 @@
 :root {
 	--mainColor: #00adef;
 	--secondaryColor: rgba(0, 0, 0, 0.75);
+	--acentColor:#fff;
+	--offset : 80px;
+	--borderRadius: 50%;
 }
 
 
@@ -30,13 +33,39 @@ footer {
 }
 
 main {
-
 	background-color: var(--secondaryColor);
+}
+#temp{
+		font-size: 10rem;
 }
 
 
-span {
-	font-weight: bold
+span, #city{
+	font-weight: bold;
+	color: var(--acentColor);
+}
+.unit{
+	color: var(--acentColor);
+}
+footer{
+	font-size: 1.5rem;
+}
+
+input {
+	border: none;
+	border: 3px solid #005;
+
+	border-radius: 2em;
+	width: 40%;
+	height: 80px;
+	line-height: 60px;
+	background-color:none;
+	font-size: 4em;
+	font-family: fontello;
+	padding: 0 100px;
+	color: var(--mainColor);
+	font-family: 'lato', sans-serif;
+	font-weight: bold;
 }
 
 @media only screen and (max-width: 768px) {

@@ -46,6 +46,7 @@
 	}
 
 	function addToHTML(recivedData) {
+
 		//destrukturyzacja
 		const {
 			name,
@@ -53,18 +54,18 @@
 				speed,
 				deg
 			},
-			rain: {
-				"1h": rain
-			},
 			main: {
-				humidity,
-				temp
+				pressure,
+				temp,
+				humidity
 			}
 		} = recivedData;
+
 		document.querySelector("#city ").appendChild(document.createTextNode(name));
 		document.querySelector("#wind span").appendChild(document.createTextNode(speed));
-		document.querySelector("#rain span").appendChild(document.createTextNode(rain));
 		document.querySelector("#humidity span").appendChild(document.createTextNode(humidity));
+		document.querySelector("#pressure span").appendChild(document.createTextNode(pressure));
 		document.querySelector("#temp span").appendChild(document.createTextNode(Math.floor(temp)));
 	}
+
 	addToHTML(city);
