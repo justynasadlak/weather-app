@@ -1,7 +1,7 @@
 const setWeather = (cityName) => {
 	if(!cityName){ 
 		if ("geolocation" in navigator) {
-			// geolokacja jest dostepna, zczytanie wartosci z szerokosci i wysokosci geograficznych
+			// run if geolocation is available in the browser
 			navigator.geolocation.getCurrentPosition((position) => {
 				const lat = position.coords.latitude;
 				const lon = position.coords.longitude;
@@ -13,6 +13,7 @@ const setWeather = (cityName) => {
 				});
 			});
 		} else {
+			// run if gelocation is not available
 			__cityWeather(); 
 		}
 	} else {
@@ -25,7 +26,8 @@ function __cityWeather(cityName = 'Wrocław') {
 		url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=bd188a60c6f03b3849a561219f8a7f5d&units=metric&lang=pl`,
 		type: "GET",
 		dataType: "jsonp",
-		success: (data) => __addToHTML(data)
+		success: (data) => __addToHTML(data),
+		error: () => setWeather('Wrocław')   // if error occurs, set city to Wrocław
 	});
 }
 
@@ -34,6 +36,6 @@ function __addToHTML(city) {
 	document.querySelector("#wind span").innerText = city.wind.speed;
 	document.querySelector("#humidity span").innerText =  city.main.humidity;
 	document.querySelector("#pressure span").innerText = city.main.pressure;
-	document.querySelector("#temp span").innerText =  Math.round(city.main.temp); // Math.round jest lepsze w tej sytuacji
+	document.querySelector("#temp span").innerText =  Math.round(city.main.temp);
 }
 setWeather();
