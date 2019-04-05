@@ -1,17 +1,16 @@
 :root {
 	--mainColor: #00adef;
 	--secondaryColor: rgba(0, 0, 0, 0.75);
-	--acentColor:#fff;
+	--accentColor:#fff;
 	--offset : 80px;
 	--borderRadius: 50%;
 }
 
 
-
 body {
 	font-family: 'lato', sans-serif;
 	font-size: 2em;
-	font-weight: lighter;
+	font-weight: bold;
 	color: var(--mainColor);
 	background-image: url('../img/35mm-aerial-aerial-shot-1105766.jpg');
 	background-size: cover;
@@ -23,17 +22,22 @@ footer {
 	background-color: var(--secondaryColor);
 
 }
-
+i.icon-location{
+	border-radius: 100%;
+	border: 3px solid var(--mainColor);
+	/* background-color: var(--accentColor); */
+	color: var(--mainColor) ;
+}
 #logo {
 	background-image: url('../img/logo.png');
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: 5% center;
+	background-position: center center;
 
 }
 
 main {
-	background-color: var(--secondaryColor);
+	/* background-color: var(--secondaryColor); */
 }
 #temp{
 		font-size: 10rem;
@@ -41,11 +45,11 @@ main {
 
 
 span, #city{
-	font-weight: bold;
-	color: var(--acentColor);
+	font-weight: lighter;
+	color: var(--accentColor);
 }
 .unit{
-	color: var(--acentColor);
+	color: var(--accentColor);
 }
 footer{
 	font-size: 1.5rem;
@@ -53,17 +57,14 @@ footer{
 
 input {
 	border: none;
-	border: 3px solid #005;
-
+	border: 3px solid var(--accentColor);
 	border-radius: 2em;
 	width: 40%;
-	height: 80px;
-	line-height: 60px;
-	background-color:none;
-	font-size: 4em;
-	font-family: fontello;
-	padding: 0 100px;
-	color: var(--mainColor);
+	height: 45px;
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 1.4rem;
+	padding: 0 60px;
+	color: var(--accentColor);
 	font-family: 'lato', sans-serif;
 	font-weight: bold;
 }
@@ -80,9 +81,12 @@ input {
 
 @media only screen and (max-width: 480px) {
 
+	body{
+		font-size: 1.3em;
 
+	}
 	#temp {
-		font-size: 6rem;
+		font-size: 4rem;
 	}
 
 

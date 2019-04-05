@@ -9,14 +9,38 @@
 	<link rel="stylesheet" type="text/css" href="css/fontello.css">
 	<link rel="stylesheet" type="text/css" href="css/layout.css">
 	<link rel="stylesheet" type="text/css" href="css/look.css">
+	<link rel="stylesheet" type="text/css" href="css/loading.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
 </head>
 
 <body>
+	<div id="loading">
+		Ładowanie danych
+		<div class="spinner">
+			<div class="rect1"></div>
+			<div class="rect2"></div>
+			<div class="rect3"></div>
+			<div class="rect4"></div>
+			<div class="rect5"></div>
+		</div>
+
+	</div>
+
 	<header class="center">
 		<div id="logo"></div>
-	</div>
-	<div id="city" class="center"></div>
+		<div class="center ">
+		
+			<form class="center">
+					<i class="icon-search unit center" class="center"></i>
+				<input type="text" class="center">
+				<i class="icon-location unit center" class="center"></i>
+			</form>
+		</div>
+			</div>
 
+		</div>
+		<div id="city" class="center"></div>
 	</header>
 	<main>
 		<div id="temp" class="center">
@@ -29,12 +53,14 @@
 		</div>
 		<div id="humidity" class="small-indicator center">
 
-			<i class="icon-droplet center unit"></i>Wilgotność: <span class="center unit"></span><span class="center unit">%</span>
+			<i class="icon-droplet center unit"></i>Wilgotność: <span class="center unit"></span><span
+				class="center unit">%</span>
 
 		</div>
 		<div id="pressure" class="small-indicator center">
 
-			<i class="icon-gauge center unit"></i>Ciśnienie: <span class="center unit"></span><span class="center unit">hPa</span>
+			<i class="icon-gauge center unit"></i>Ciśnienie: <span class="center unit"></span><span
+				class="center unit">hPa</span>
 
 		</div>
 
@@ -44,8 +70,6 @@
 	</footer>
 
 	<script src="./js/index.js"></script>
-
-
 </body>
 
 </html>

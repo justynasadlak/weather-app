@@ -10,74 +10,90 @@ body {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: minmax(auto, 100px) auto 50px;
+	/* overflow: scroll; */
+}
+#logo{
+	min-height: 100px;
+}
+.icon-search{
+	position: relative;
+	left: 50px;
+}
+
+.icon-location {
+	height: 45px;
 }
 
 main {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
+	
 }
-.center{
+
+.center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+
 .small-indicator {
 	grid-row: 3;
 	width: 100%;
 }
-.unit{
+
+.unit {
 	width: auto;
 	margin-left: 10px;
 }
+
 div {
 	text-align: center;
 }
+
 #temp {
 	grid-column: 2/3;
 	grid-row: 1;
 	grid-row: span 2;
-
 }
 
-.icon-search{
+.gps {
 	position: relative;
-	left: 100px;
-	top: -10px;
-	height: 60px;
-	font-size: 80px;
+	left: -100px;
 }
 
 #search-container {
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-@media only screen and (max-width: 768px) {
+footer{
+	font-size: 1em;
+}
+@media only screen and (max-width: 768px) {	
 	body {
 		grid-template-rows: minmax(100px, auto) auto 50px;
-
 	}
-
+		header {
+			flex-direction: column;
+			min-height: 200px;
+		}
+		.small-indicator.center{
+			justify-content: flex-start;
+		}
 	main {
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: repeat(3, minmax(100px, 1fr));
 	}
-
 	#temp {
 		grid-row: 1/-1;
 		grid-column: span 1;
 	}
-
-	#wind,
-	#humidity,
-	#pressure {
+	#wind, #humidity, #pressure {
 		grid-column: 2/3;
 		grid-row: auto;
 	}
-
 }
 
 @media only screen and (max-width: 480px) {
@@ -88,22 +104,17 @@ div {
 	main {
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(5, 1fr);
+		grid-gap: 3px;
 	}
-
 	#temp {
 		grid-row: span 2;
 		grid-column: span 1;
 	}
-
-	#wind,
-	#humidity,
-	#pressure {
+	#wind, #humidity, #pressure {
 		grid-row: auto;
 		grid-column: 1;
 	}
-
 	header {
 		flex-direction: column;
 	}
-
 }

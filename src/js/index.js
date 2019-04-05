@@ -1,4 +1,4 @@
-	//przy pobieraniu api dodaj units=metric  i lang=pl na końcu url żeby mieć dane w m/s
+	//przy pobieraniu api dodaj units=metric na końcu url żeby mieć dane w m/s
 	// https://openweathermap.org/current#data
 	//PRZYKŁADOWY OBIEKT
 	const city = {
@@ -45,6 +45,8 @@
 		"cod": 200
 	}
 
+
+
 	function addToHTML(recivedData) {
 
 		//destrukturyzacja
@@ -61,11 +63,46 @@
 			}
 		} = recivedData;
 
-		document.querySelector("#city ").appendChild(document.createTextNode(name));
-		document.querySelector("#wind span").appendChild(document.createTextNode(speed));
-		document.querySelector("#humidity span").appendChild(document.createTextNode(humidity));
-		document.querySelector("#pressure span").appendChild(document.createTextNode(pressure));
-		document.querySelector("#temp span").appendChild(document.createTextNode(Math.floor(temp)));
+		document.querySelector("#city ").innerHTML = name;
+		document.querySelector("#wind span").innerHTML = speed;
+		document.querySelector("#humidity span").innerHTML = humidity;
+		document.querySelector("#pressure span").innerHTML = pressure;
+		document.querySelector("#temp span").innerHTML = Math.floor(temp);
+		document.querySelector('header input').placeholder = name;
 	}
 
 	addToHTML(city);
+
+	//ekran ładowania - jeden div o id loading - po pobraniu api ustaw jego display na none
+	function symulateLoading() {
+		loading(true)
+		setTimeout(() => loading(false), 1000);
+	}
+
+	function loading(visible){
+		if(visible)
+			document.getElementById('loading').style.display = 'flex';
+		else
+			document.getElementById('loading').style.display = 'none';
+	}
+	function search(e) {
+		e.preventDefault();
+		let inputValue = document.querySelector('input[type=text]').value;
+		loading(true);
+
+		fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&APPID=80f7202c360f25cfb26af089b48da204&units=metric`)
+			.then(res => res.json())
+			.then(res => {
+				addToHTML(res);
+				loading(false);
+			})
+			.catch( () =>{
+				loading(false);
+				document.querySelector("#city").innerHTML = 'Błędne dane';
+		});
+
+
+	}
+
+	document.querySelector('.icon-location').addEventListener("click", symulateLoading);
+	document.querySelector('header form').addEventListener('submit', search);
