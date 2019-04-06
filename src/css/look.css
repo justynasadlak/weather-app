@@ -1,10 +1,8 @@
 :root {
 	--mainColor: #00adef;
 	--secondaryColor: rgba(0, 0, 0, 0.75);
-	--accentColor:#fff;
-
+	--accentColor: #fff;
 }
-
 body {
 	font-family: 'lato', sans-serif;
 	color: var(--mainColor);
@@ -14,59 +12,52 @@ body {
 	font-weight: bold;
 	font-size: 1.4rem;
 }
-
-.day1 .temp{
-	font-size: 5rem;
-
+input {
+	border: 3px solid var(--accentColor);
+	border-radius: 2em;
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 1.4rem;
+	color: var(--accentColor);
+	font-family: 'lato', sans-serif;
+	font-weight: bold;
 }
-.day1{
-	font-size: 1.8rem;
-}
-.temp{
-	font-size: 2.5rem;
-}
-i.icon-location{
+i.icon-location {
 	border-radius: 100%;
 	border: 3px solid var(--mainColor);
-	color: var(--mainColor) ;
+	color: var(--mainColor);
 	font-size: 1.6em;
-	
 }
 #logo {
 	background-image: url('../img/logo.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center center;
-
 }
-
+.day1 {
+	font-size: 3.5rem;
+}
+.day1 .temp {
+	font-size: 7rem;
+}
+.temp {
+	font-size: 2.5rem;
+}
 .unit {
 	color: var(--accentColor);
+	font-weight: lighter;
 }
-input {
-	border: 3px solid var(--accentColor);
-	border-radius: 2em;
-	width: 40%;
-	height: 45px;
-	background-color: rgba(0, 0, 0, 0);
-	font-size: 1.4rem;
-	padding: 0 60px;
-	color: var(--accentColor);
-	font-family: 'lato', sans-serif;
-	font-weight: bold;
-}
-@media only screen and (max-width: 768px) {
 
-	.day1 .temp{
+@media only screen and (max-width: 768px) {
+	.day1 .temp {
 		font-size: 2.5em;
 	}
-	.day1{
+	.day1 {
 		font-size: 1.4em;
 	}
-	.temp{
+	.temp {
 		font-size: 1.5em;
 	}
-	.day{
+	.day {
 		font-size: 1em;
 	}
 }
@@ -74,17 +65,13 @@ input {
 	.day1 .temp {
 		font-size: 2em;
 	}
-
 	.day1 {
 		font-size: 1.4em;
 	}
-
 	.temp {
 		font-size: 1.5em;
 	}
-
 	.day {
 		font-size: 1em;
 	}
-
 }

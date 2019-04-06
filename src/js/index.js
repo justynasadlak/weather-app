@@ -62,12 +62,12 @@
 				humidity
 			}
 		} = recivedData;
-		document.querySelector(".city ").innerHTML = name;
+		document.querySelector("header .city ").innerText =name;
 		document.querySelector('header input').placeholder = name;
 
 		for (let i = 1; i <= 5; i++) {
 			console.log("i", i);
-			document.querySelector(`.day${i} .wind span.center`).innerHTML = speed;
+			document.querySelector(`.day${i} .wind span`).innerHTML = speed;
 			document.querySelector(`.day${i} .humidity span`).innerHTML = humidity;
 			document.querySelector(`.day${i} .temp span`).innerHTML = Math.floor(temp);
 			document.querySelector(`.day${i} .pressure span`).innerHTML = pressure;
@@ -103,7 +103,7 @@
 			})
 			.catch(() => {
 				loading(false);
-				document.querySelector("#city").innerHTML = 'Błędne dane';
+				document.querySelector(".city").innerHTML = 'Błędne dane';
 			});
 
 
