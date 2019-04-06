@@ -1,71 +1,47 @@
-	//przy pobieraniu api dodaj units=metric  i lang=pl na końcu url żeby mieć dane w m/s
-	// https://openweathermap.org/current#data
-	//PRZYKŁADOWY OBIEKT
-	const city = {
-		"coord": {
-			"lon": 17.03,
-			"lat": 51.1
-		},
-		"weather": [{
-			"id": 800,
-			"main": "Clear",
-			"description": "bezchmurnie",
-			"icon": "01n"
-		}],
-		"base": "stations",
-		"main": {
-			"temp": 3.24,
-			"pressure": 1025,
-			"humidity": 44,
-			"temp_min": 1.67,
-			"temp_max": 5
-		},
-		"visibility": 10000,
-		"wind": {
-			"speed": 4.1,
-			"deg": 80
-		},
-		"clouds": {
-			"all": 0
-		},
-		"rain": {
-			"1h": 3
-		},
-		"dt": 1554147933,
-		"sys": {
-			"type": 1,
-			"id": 1715,
-			"message": 0.004,
-			"country": "PL",
-			"sunrise": 1554092905,
-			"sunset": 1554139381
-		},
-		"id": 3081368,
-		"name": "Wroclaw",
-		"cod": 200
+const setWeather = (cityName) => {
+	if(!cityName){ 
+		if ("geolocation" in navigator) {
+			// run if geolocation is available in the browser
+			navigator.geolocation.getCurrentPosition((position) => {
+				// run if success
+				const lat = position.coords.latitude;
+				const lon = position.coords.longitude
+
+				$.ajax({
+					url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=bd188a60c6f03b3849a561219f8a7f5d&units=metric&lang=pl`,
+					type: "GET",
+					dataType: "json",
+					success: (data) => __addToHTML(data),
+					error: () => __cityWeather('Wrocław')
+				});
+			}, () => {
+				// run if error occurs
+				__cityWeather();
+			});
+		} else {
+			// run if gelocation is not available
+			__cityWeather(); 
+		}
+	} else {
+		__cityWeather(cityName);
 	}
+}
 
-	function addToHTML(recivedData) {
+function __cityWeather(cityName = 'Wrocław') {
+	$.ajax({
+		url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=bd188a60c6f03b3849a561219f8a7f5d&units=metric&lang=pl`,
+		type: "GET",
+		dataType: "jsonp",
+		success: (data) => __addToHTML(data),
+		error: () => setWeather()   // if error occurs, set city to Wrocław
+	});
+}
 
-		//destrukturyzacja
-		const {
-			name,
-			wind: {
-				speed,
-				deg
-			},
-			main: {
-				pressure,
-				temp,
-				humidity
-			}
-		} = recivedData;
-
-		document.querySelector("#city ").appendChild(document.createTextNode(name));
-		document.querySelector("#wind span").appendChild(document.createTextNode(speed));
-		document.querySelector("#humidity span").appendChild(document.createTextNode(humidity));
-		document.querySelector("#pressure span").appendChild(document.createTextNode(pressure));
-		document.querySelector("#temp span").appendChild(document.createTextNode(Math.floor(temp)));
-	}
-
-	addToHTML(city);
+function __addToHTML(city) {
+	document.querySelector("#city ").innerText = city.name;
+	document.querySelector("#wind span").innerText = city.wind.speed;
+	document.querySelector("#humidity span").innerText =  city.main.humidity;
+	document.querySelector("#pressure span").innerText = city.main.pressure;
+	document.querySelector("#temp span").innerText =  Math.round(city.main.temp);
+}
+setWeather();
