@@ -3,14 +3,20 @@ const setWeather = (cityName) => {
 		if ("geolocation" in navigator) {
 			// run if geolocation is available in the browser
 			navigator.geolocation.getCurrentPosition((position) => {
+				// run if success
 				const lat = position.coords.latitude;
-				const lon = position.coords.longitude;
+				const lon = position.coords.longitude
+
 				$.ajax({
 					url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=bd188a60c6f03b3849a561219f8a7f5d&units=metric&lang=pl`,
 					type: "GET",
 					dataType: "json",
-					success: (data) => __addToHTML(data)  
+					success: (data) => __addToHTML(data),
+					error: () => __cityWeather('Wrocław')
 				});
+			}, () => {
+				// run if error occurs
+				__cityWeather();
 			});
 		} else {
 			// run if gelocation is not available
@@ -27,7 +33,7 @@ function __cityWeather(cityName = 'Wrocław') {
 		type: "GET",
 		dataType: "jsonp",
 		success: (data) => __addToHTML(data),
-		error: () => setWeather('Wrocław')   // if error occurs, set city to Wrocław
+		error: () => setWeather()   // if error occurs, set city to Wrocław
 	});
 }
 
