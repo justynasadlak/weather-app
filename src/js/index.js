@@ -1,5 +1,5 @@
 import {setWeather} from './weather';
-setWeather('', true);  // default is Wroclaw
+setWeather('', true);  // default is geolocation
 
 $('.icon-location').click( () => {
 	setWeather('', true);

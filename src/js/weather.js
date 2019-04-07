@@ -32,14 +32,16 @@ export const setWeather = (cityName, isGeolocation = false) => {
 		__cityWeather(cityName);
 	}
 }
+
 function __loading() {
-	const $loader = $('#loading'); 
-	if($loader.css('display') === 'none') {
+	const $loader = $('#loading');
+	if ($loader.css('display') === 'none') {
 		$loader.css('display', 'flex')
 	} else {
 		$loader.css('display', 'none');
 	}
 }
+
 function __cityWeather(cityName = 'Wrocław') {
 	$.ajax({
 		url: `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=bd188a60c6f03b3849a561219f8a7f5d&units=metric&lang=pl`,
@@ -53,7 +55,10 @@ function __cityWeather(cityName = 'Wrocław') {
 	});
 }
 
-function __addToHTML( { city, list } ) {
+function __addToHTML({
+	city,
+	list
+}) {
 	__loading(); //end of loading
 
 	const nextDays = __nextFourDays(list);
@@ -65,10 +70,10 @@ function __addToHTML( { city, list } ) {
 	document.querySelector(`.day1 .pressure span`).innerText = list[0].main.pressure;
 	document.querySelector(`.day1 .temp span`).innerText = Math.round(list[0].main.temp);
 	for (let i = 2; i < 6; i++) {
-		document.querySelector(`.day${i} .wind span`).innerText = nextDays[i-2].wind;
-		document.querySelector(`.day${i} .humidity span`).innerText = nextDays[i-2].humidity;
-		document.querySelector(`.day${i} .pressure span`).innerText = nextDays[i-2].pressure;
-		document.querySelector(`.day${i} .temp span`).innerText = Math.round(nextDays[i-2].temp);
+		document.querySelector(`.day${i} .wind span`).innerText = nextDays[i - 2].wind;
+		document.querySelector(`.day${i} .humidity span`).innerText = nextDays[i - 2].humidity;
+		document.querySelector(`.day${i} .pressure span`).innerText = nextDays[i - 2].pressure;
+		document.querySelector(`.day${i} .temp span`).innerText = Math.round(nextDays[i - 2].temp);
 	}
 }
 
