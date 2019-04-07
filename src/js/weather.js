@@ -106,6 +106,7 @@ function __nextFourDays(weatherList) {
 			humidityCalc[0] += weatherList[i].main.humidity;
 			humidityCalc[1] += 1;
 		}
+		
 		currentDay.temp = currentDay.temp > weatherList[i].main.temp ?
 			currentDay.temp : weatherList[i].main.temp;
 
