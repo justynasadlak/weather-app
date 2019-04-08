@@ -22,7 +22,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['file-loader', 'style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg|png|jpg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/'
+          }
+        }]
       }
     ]
   },

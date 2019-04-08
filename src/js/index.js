@@ -1,6 +1,6 @@
-import '../css/fontello.css'
-import '../css/layout.css'
-import '../css/look.css'
+import '../css/fontello.css';
+import '../css/layout.css';
+import '../css/look.css';
 	//przy pobieraniu api dodaj units=metric  i lang=pl na końcu url żeby mieć dane w m/s
 	// https://openweathermap.org/current#data
 	//PRZYKŁADOWY OBIEKT
