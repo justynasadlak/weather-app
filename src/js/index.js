@@ -1,3 +1,7 @@
+import '../css/loading.css';
+import '../css/fontello.css';
+import '../css/layout.css';
+import '../css/look.css';
 import {setWeather} from './weather';
 setWeather('', true);  // default is geolocation
 
