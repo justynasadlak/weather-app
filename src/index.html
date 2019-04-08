@@ -1,51 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Prognoza</title>
-	<link rel="stylesheet" type="text/css" href="css/fontello.css">
-	<link rel="stylesheet" type="text/css" href="css/layout.css">
-	<link rel="stylesheet" type="text/css" href="css/look.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Prognoza</title>
+  <link rel="stylesheet" type="text/css" href="css/fontello.css">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+  <link rel="stylesheet" type="text/css" href="css/look.css">
+  <link rel="stylesheet" type="text/css" href="css/loading.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
-
 <body>
-	<header class="center">
-		<div id="logo"></div>
-	
-	<div id="city" class="center"></div>
-
-	</header>
-	<main>
-		<div id="temp" class="center">
-			<span class="center unit"></span><span class="center unit">&deg;C</span>
-		</div>
-		<div id="wind" class="small-indicator center">
-
-			<i class="icon-wind center unit"></i>Wiatr <span class="center unit"></span><span class="center unit">m/s</span>
-
-		</div>
-		<div id="humidity" class="small-indicator center">
-
-			<i class="icon-droplet center unit"></i>Wilgotność: <span class="center unit"></span><span class="center unit">%</span>
-
-		</div>
-		<div id="pressure" class="small-indicator center">
-
-			<i class="icon-gauge center unit"></i>Ciśnienie: <span class="center unit"></span><span class="center unit">hPa</span>
-
-		</div>
-
-	</main>
-	<footer class="center">
-		&copy; - kamykijemy - 2019
-	</footer>
-
-	<script src="./js/index.js" type="module"></script>
-
-
+  <div id="loading">
+    Ładowanie danych
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+  </div>
+  <header class="center">
+    <div id="logo"></div>
+      <form class="center">
+        <i class="icon-search unit center" class="center"></i>
+        <input type="text" class="center">
+        <i class="icon-location unit center" class="center"></i>
+      </form>
+      <div class="city center"></div>
+  </header>
+  
+  <main>
+    <div class="day1">
+      <div class="temp center">
+        <span class="center unit"></span>
+        <span class="center unit">&deg;C</span>
+      </div>
+      <div class="wind small-indicator ">
+        <i class="icon-wind center unit"></i>
+        Wiatr:
+        <span class="center unit"></span>
+        <span class="center unit">m/s</span>
+      </div>
+      <div class="humidity center">
+        <i class="icon-droplet center unit"></i>
+        Wilgotność:
+        <span class="center unit"></span>
+        <span class="center unit">%</span>
+      </div>
+      <div class="pressure  center">
+        <i class="icon-gauge center unit"></i>
+        Ciśnienie: 
+        <span class="center unit"></span>
+        <span class="center unit">hPa</span>
+      </div>
+    </div>
+    <div class="day day2">
+      <div class="temp center">
+        <span class="center unit"></span>
+        <span class="center unit">&deg;C</span>
+      </div>
+      <div class="wind small-indicator ">
+        <i class="icon-wind center unit"></i>
+        Wiatr:
+        <span class="center unit"></span>
+        <span class="center unit">m/s</span>
+      </div>
+      <div class="humidity center">
+        <i class="icon-droplet center unit"></i>
+        Wilgotność:
+        <span class="center unit"></span>
+        <span class="center unit">%</span>
+      </div>
+      <div class="pressure  center">
+        <i class="icon-gauge center unit"></i>
+        Ciśnienie: 
+        <span class="center unit"></span>
+        <span class="center unit">hPa</span>
+      </div>
+    </div>
+    <div class="day day3">
+      <div class="temp center">
+        <span class="center unit"></span>
+        <span class="center unit">&deg;C</span>
+      </div>
+      <div class="wind small-indicator ">
+        <i class="icon-wind center unit"></i>
+        Wiatr:
+        <span class="center unit"></span>
+        <span class="center unit">m/s</span>
+      </div>
+      <div class="humidity center">
+        <i class="icon-droplet center unit"></i>
+        Wilgotność:
+        <span class="center unit"></span>
+        <span class="center unit">%</span>
+      </div>
+      <div class="pressure  center">
+        <i class="icon-gauge center unit"></i>
+        Ciśnienie: 
+        <span class="center unit"></span>
+        <span class="center unit">hPa</span>
+      </div>
+    </div>
+    <div class="day day4">
+      <div class="temp center">
+        <span class="center unit"></span>
+        <span class="center unit">&deg;C</span>
+      </div>
+      <div class="wind small-indicator ">
+        <i class="icon-wind center unit"></i>
+        Wiatr:
+        <span class="center unit"></span>
+        <span class="center unit">m/s</span>
+      </div>
+      <div class="humidity center">
+        <i class="icon-droplet center unit"></i>
+        Wilgotność:
+        <span class="center unit"></span>
+        <span class="center unit">%</span>
+      </div>
+      <div class="pressure  center">
+        <i class="icon-gauge center unit"></i>
+        Ciśnienie: 
+        <span class="center unit"></span>
+        <span class="center unit">hPa</span>
+      </div>
+    </div>
+    <div class="day day5">
+      <div class="temp center">
+        <span class="center unit"></span>
+        <span class="center unit">&deg;C</span>
+      </div>
+      <div class="wind small-indicator ">
+        <i class="icon-wind center unit"></i>
+        Wiatr:
+        <span class="center unit"></span>
+        <span class="center unit">m/s</span>
+      </div>
+      <div class="humidity center">
+        <i class="icon-droplet center unit"></i>
+        Wilgotność:
+        <span class="center unit"></span>
+        <span class="center unit">%</span>
+      </div>
+      <div class="pressure  center">
+        <i class="icon-gauge center unit"></i>
+        Ciśnienie: 
+        <span class="center unit"></span>
+        <span class="center unit">hPa</span>
+      </div>
+    </div>
+    
+  </main>
+  
+ <footer class="center"> &copy; - kamykijemy - 2019</footer>
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ <script src="../dist/bundle.js"></script>
 </body>
-
 </html>
