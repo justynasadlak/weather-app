@@ -29,7 +29,17 @@ export const setWeather = (cityName, isGeolocation = false) => {
 			__cityWeather();
 		}
 	} else {
-		__cityWeather(cityName);
+		if(!cityName) cityName = 'Wrocław';
+		$.ajax({
+			url: `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=bd188a60c6f03b3849a561219f8a7f5d&units=metric&lang=pl`,
+			type: "GET",
+			dataType: "jsonp",
+			success: (data) => __addToHTML(data),
+			error: () => { // if error occurs, set city to Wrocław
+				alert('Przepraszamy, ale wystąpił błąd.')
+				__loading();
+			}
+		});
 	}
 }
 
@@ -40,19 +50,6 @@ function __loading() {
 	} else {
 		$loader.css('display', 'none');
 	}
-}
-
-function __cityWeather(cityName = 'Wrocław') {
-	$.ajax({
-		url: `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=bd188a60c6f03b3849a561219f8a7f5d&units=metric&lang=pl`,
-		type: "GET",
-		dataType: "jsonp",
-		success: (data) => __addToHTML(data),
-		error: () => { // if error occurs, set city to Wrocław
-			alert('Przepraszamy, ale wystąpił błąd.')
-			__loading();
-		}
-	});
 }
 
 function __addToHTML({
@@ -66,12 +63,12 @@ function __addToHTML({
 	document.querySelector(".city ").innerText = city.name;
 
 	document.querySelector(`.day1 .wind span`).innerText = list[0].wind.speed;
-	document.querySelector(`.day1 .humidity span`).innerText = list[0].main.humidity;
+	document.querySelector(`.day1 .humidity span`).innerText = Math.round(list[0].main.humidity);
 	document.querySelector(`.day1 .pressure span`).innerText = list[0].main.pressure;
 	document.querySelector(`.day1 .temp span`).innerText = Math.round(list[0].main.temp);
 	for (let i = 2; i < 6; i++) {
 		document.querySelector(`.day${i} .wind span`).innerText = nextDays[i - 2].wind;
-		document.querySelector(`.day${i} .humidity span`).innerText = nextDays[i - 2].humidity;
+		document.querySelector(`.day${i} .humidity span`).innerText = Math.round(nextDays[i - 2].humidity);
 		document.querySelector(`.day${i} .pressure span`).innerText = nextDays[i - 2].pressure;
 		document.querySelector(`.day${i} .temp span`).innerText = Math.round(nextDays[i - 2].temp);
 	}
@@ -102,7 +99,8 @@ function __nextFourDays(weatherList) {
 		}
 		currentDay.isNew = false;
 
-		if (weatherList[i].dt_txt.match(/1[2,5,8]:00:00|09:00:00/g)) {
+		if (weatherList[i].dt_txt.match(/1[1-9]:00:00/g)) {
+			console.log(` ${weatherList[i].main.humidity} o ${weatherList[i].dt_txt}`)
 			humidityCalc[0] += weatherList[i].main.humidity;
 			humidityCalc[1] += 1;
 		}
