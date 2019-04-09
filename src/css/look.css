@@ -6,6 +6,7 @@
 body {
 	font-family: 'lato', sans-serif;
 	color: var(--mainColor);
+	/* Background form: https://www.pexels.com/photo/aerial-view-and-grayscale-photography-of-high-rise-buildings-1105766/ */
 	background-image: url('../img/35mm-aerial-aerial-shot-1105766.jpg');
 	background-size: cover;
 	background-repeat: repeat-y;
@@ -34,10 +35,10 @@ i.icon-location {
 	background-position: center center;
 }
 .day1 {
-	font-size: 3.5rem;
+	font-size: 3.0rem;
 }
 .day1 .temp {
-	font-size: 7rem;
+	font-size: 6rem;
 }
 .temp {
 	font-size: 2.5rem;
@@ -46,7 +47,11 @@ i.icon-location {
 	color: var(--accentColor);
 	font-weight: lighter;
 }
-
+.day-name{
+	border: 4px solid var(--accentColor);
+	padding: 6px;
+	font-weight: bold;
+}
 @media only screen and (max-width: 768px) {
 	.day1 .temp {
 		font-size: 2.5em;
