@@ -64,13 +64,14 @@ function __addToHTML({
 
 	document.querySelector(`.day1 .wind span`).innerText = list[0].wind.speed;
 	document.querySelector(`.day1 .humidity span`).innerText = Math.round(list[0].main.humidity);
-	document.querySelector(`.day1 .pressure span`).innerText = list[0].main.pressure;
+	document.querySelector(`.day1 .pressure span`).innerText = Math.round(list[0].main.pressure);
 	document.querySelector(`.day1 .temp span`).innerText = Math.round(list[0].main.temp);
 	for (let i = 2; i < 6; i++) {
 		document.querySelector(`.day${i} .wind span`).innerText = nextDays[i - 2].wind;
 		document.querySelector(`.day${i} .humidity span`).innerText = Math.round(nextDays[i - 2].humidity);
-		document.querySelector(`.day${i} .pressure span`).innerText = nextDays[i - 2].pressure;
+		document.querySelector(`.day${i} .pressure span`).innerText = Math.round(nextDays[i - 2].pressure);
 		document.querySelector(`.day${i} .temp span`).innerText = Math.round(nextDays[i - 2].temp);
+		document.querySelector(`.day${i} .day-name`).innerText = nextDays[i - 2].date;
 	}
 }
 
@@ -80,6 +81,7 @@ function __nextFourDays(weatherList) {
 		temp: 0,
 		wind: 0,
 		humidity: 0,
+		date: 0,
 		pressure: 0,
 		isNew: true
 	};
@@ -97,10 +99,10 @@ function __nextFourDays(weatherList) {
 			currentDay.isNew = true;
 			humidityCalc = [0, 0];
 		}
+		currentDay.date = weatherList[i].dt_txt.split(' ')[0];
 		currentDay.isNew = false;
 
 		if (weatherList[i].dt_txt.match(/1[1-9]:00:00/g)) {
-			console.log(` ${weatherList[i].main.humidity} o ${weatherList[i].dt_txt}`)
 			humidityCalc[0] += weatherList[i].main.humidity;
 			humidityCalc[1] += 1;
 		}
@@ -118,5 +120,5 @@ function __nextFourDays(weatherList) {
 		output.push(currentDay);
 	}
 
-	return output.slice(1);
+	return output.slice(1);  //we don't want stats of first day
 }
