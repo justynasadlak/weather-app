@@ -22,11 +22,13 @@ export const setWeather = (cityName, isGeolocation = false) => {
 				// run if error occurs
 				alert('Przepraszamy, ale nie możemy znaleźć Twojej lokalizacji.');
 				__loading();
+				setWeather('Wrocław');
 			});
 		} else {
 			// run if gelocation is not available
 			alert('Przepraszamy, ale Twoja przeglądarka nie wspiera usług geolokacji.');
-			__cityWeather();
+			__loading();
+			setWeather('Wrocław');			
 		}
 	} else {
 		if(!cityName) cityName = 'Wrocław';
