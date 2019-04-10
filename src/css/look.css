@@ -58,10 +58,10 @@ i.icon-location {
     padding-right: 3rem;
     margin-bottom: 0.4rem;
 	
-}
 footer{
 	font-size: 1.5rem;
 }
+  
 @media only screen and (max-width: 768px) {
 	.day1 .temp {
 		font-size: 2em;
