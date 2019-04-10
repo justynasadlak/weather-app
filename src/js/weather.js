@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import moment from 'moment';
+moment.locale("pl");
+
 export const setWeather = (cityName, isGeolocation = false) => {
 	__loading(); // start of loading
 	if (isGeolocation) {
@@ -28,10 +32,10 @@ export const setWeather = (cityName, isGeolocation = false) => {
 			// run if gelocation is not available
 			alert('Przepraszamy, ale Twoja przeglądarka nie wspiera usług geolokacji.');
 			__loading();
-			setWeather('Wrocław');			
+			setWeather('Wrocław');
 		}
 	} else {
-		if(!cityName) cityName = 'Wrocław';
+		if (!cityName) cityName = 'Wrocław';
 		$.ajax({
 			url: `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=bd188a60c6f03b3849a561219f8a7f5d&units=metric&lang=pl`,
 			type: "GET",
@@ -73,7 +77,7 @@ function __addToHTML({
 		document.querySelector(`.day${i} .humidity span`).innerText = Math.round(nextDays[i - 2].humidity);
 		document.querySelector(`.day${i} .pressure span`).innerText = Math.round(nextDays[i - 2].pressure);
 		document.querySelector(`.day${i} .temp span`).innerText = Math.round(nextDays[i - 2].temp);
-		document.querySelector(`.day${i} .day-name`).innerText = nextDays[i - 2].date;
+		document.querySelector(`.day${i} .day-name`).innerText = moment().add(i-1, 'days').format('dddd');
 	}
 }
 
@@ -108,7 +112,7 @@ function __nextFourDays(weatherList) {
 			humidityCalc[0] += weatherList[i].main.humidity;
 			humidityCalc[1] += 1;
 		}
-		
+
 		currentDay.temp = currentDay.temp > weatherList[i].main.temp ?
 			currentDay.temp : weatherList[i].main.temp;
 
@@ -122,5 +126,5 @@ function __nextFourDays(weatherList) {
 		output.push(currentDay);
 	}
 
-	return output.slice(1);  //we don't want stats of first day
+	return output.slice(1); //we don't want stats of first day
 }
