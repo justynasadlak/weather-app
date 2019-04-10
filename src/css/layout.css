@@ -117,7 +117,7 @@ footer{
 }
 @media only screen and (max-width: 600px) {
 	input{
-			width: 20%;
+		width: 20%;
 	}
 
 	.icon-location {
@@ -135,6 +135,7 @@ footer{
 	}
 	#logo, .city{
 		align-self: center;
+		margin-top:10px;
 	}
 	main {
 		grid-template-columns: 1fr;
