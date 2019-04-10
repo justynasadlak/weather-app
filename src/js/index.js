@@ -12,7 +12,9 @@ $('.icon-location').click( () => {
 $('form').submit((event) => {
 	event.preventDefault();
 	setWeather($('form input').val());
+	$('form input').val("");
 })
 $('.icon-search').click(() => {
 	setWeather($('form input').val());
+	$('form input').val("");
 })
