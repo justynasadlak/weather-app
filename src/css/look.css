@@ -50,8 +50,8 @@ i.icon-location {
 .day-name{
 	border-bottom: 2px solid var(--accentColor);
 	padding: 0.4rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     margin-bottom: 0.4rem;
 	
 }
