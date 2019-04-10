@@ -11,13 +11,13 @@ body {
 	background-size: cover;
 	background-repeat: repeat-y;
 	font-weight: bold;
-	font-size: 1.4rem;
+	font-size: 1rem;
 }
 input {
 	border: 3px solid var(--accentColor);
 	border-radius: 2em;
 	background-color: rgba(0, 0, 0, 0);
-	font-size: 1.4rem;
+	font-size: 1rem;
 	color: var(--accentColor);
 	font-family: 'lato', sans-serif;
 	font-weight: bold;
@@ -35,32 +35,42 @@ i.icon-location {
 	background-position: center center;
 }
 .day1 {
-	font-size: 3.0rem;
+	font-size: 3rem;
 }
 .day1 .temp {
-	font-size: 6rem;
+	font-size: 5rem;
 }
 .temp {
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
+.day{
+	font-size: 2rem;
+}
+
 .unit {
 	color: var(--accentColor);
 	font-weight: lighter;
 }
 .day-name{
-	border: 4px solid var(--accentColor);
-	padding: 6px;
-	font-weight: bold;
+	border-bottom: 2px solid var(--accentColor);
+	padding: 0.4rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-bottom: 0.4rem;
+	
+footer{
+	font-size: 1.5rem;
 }
+  
 @media only screen and (max-width: 768px) {
 	.day1 .temp {
-		font-size: 2.5em;
+		font-size: 2em;
 	}
 	.day1 {
-		font-size: 1.4em;
+		font-size: 1.2em;
 	}
 	.temp {
-		font-size: 1.5em;
+		font-size: 1.3em;
 	}
 	.day {
 		font-size: 1em;
