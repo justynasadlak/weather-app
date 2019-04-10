@@ -35,7 +35,7 @@ i.icon-location {
 	background-position: center center;
 }
 .day1 {
-	font-size: 2.5rem;
+	font-size: 3rem;
 }
 .day1 .temp {
 	font-size: 5rem;
@@ -43,6 +43,10 @@ i.icon-location {
 .temp {
 	font-size: 2rem;
 }
+.day{
+	font-size: 2rem;
+}
+
 .unit {
 	color: var(--accentColor);
 	font-weight: lighter;
@@ -54,6 +58,9 @@ i.icon-location {
     padding-right: 3rem;
     margin-bottom: 0.4rem;
 	
+}
+footer{
+	font-size: 1.5rem;
 }
 @media only screen and (max-width: 768px) {
 	.day1 .temp {
