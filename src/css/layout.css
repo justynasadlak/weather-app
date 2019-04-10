@@ -44,7 +44,7 @@ main {
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(2, 1fr);
 	grid-gap: 10px;
-	height: 100vh;
+	height: calc(100vh -4em);
 }
 
 .day, .day1{
@@ -102,8 +102,8 @@ footer{
 		height: 100vh;
 	}
 	main {
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(3, 1fr);
 		
 	}
 	.day {
